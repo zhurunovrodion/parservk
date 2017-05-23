@@ -20,7 +20,7 @@ $device_list_count=$count[3];
 							<ul class="nav nav-tabs">
 								<li ><a href="/editlocations">Внесение данных городов<span class="badge"><?php echo $locations_count; ?></span></a></li>
 								<li class="active"><a href="/editposts">Внесение данных постов<span class="badge"><?php echo $posts_count; ?></span></a></li>
-								<li><a>Внесение данных направлений<span class="badge"><?php echo $directions_count; ?></span></a></li>
+								<li><a href="/editdirections">Внесение данных направлений<span class="badge"><?php echo $directions_count; ?></span></a></li>
 								<li><a>Внесение данных Приборов<span class="badge"><?php echo $device_list_count; ?></span></a></li>
 							</ul>
 						</div>
@@ -66,12 +66,14 @@ $i=1;
 foreach ($data[0] as $locations) {
 	
 	
-	echo '<h1 align="center">'.$locations['location_name'].'</h1>';
+	
+	
 	echo '<div class="table-responsive">';
-	echo '<table class="tableposts col-lg-12 col-md-12 col-xs-12">';
-	echo '<ul id="sortable">';
+	echo '<table class="tableposts table col-lg-12 col-md-12 col-xs-12">';
+	
 	echo '<thead>';
-	echo '<tr class="do-red "  ><th class="col-lg-1">Запись</th><th class="col-lg-1">Номер поста</th><th class="col-lg-4">Наименование</th><th class="col-lg-4">Адрес поста</th><th class="col-lg-2">Кнопки управления</th></tr>';
+	echo '<tr class="do-yellow" align="center" ><th colspan=\'5\'><h4>'.$locations['location_name'].'</h4></th></tr>';
+	echo '<tr class="do-red "  ><th class="col-lg-1 col-md-1 col-xs-1 col-sm-1">Запись</th><th class="col-lg-1 col-md-1 col-xs-1 col-sm-1">Номер поста</th><th class="col-lg-4 col-md-4 col-xs-4 col-sm-4">Наименование</th><th class="col-lg-4 col-md-4 col-xs-4 col-sm-4">Адрес поста</th><th class="col-lg-2 col-md-2 col-xs-2 col-sm-">Кнопки управления</th></tr>';
 	echo '</thead>';	
 		foreach($data[1] as $posts){
 
@@ -82,9 +84,10 @@ foreach ($data[0] as $locations) {
 					
 		}
 	}
-	  echo '</ul>';
+	 
 	echo '</table>';
-	echo '</div';
+	echo '</div>';
+	
     
 }?>
   </div>

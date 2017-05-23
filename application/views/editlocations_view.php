@@ -21,7 +21,7 @@ $device_list_count=$count[3];
 							<ul class="nav nav-tabs">
 								<li class="active"><a href="/editlocations">Внесение данных городов<span class="badge"><?php echo $locations_count; ?></span></a></li>
 								<li ><a href="/editposts">Внесение данных постов<span class="badge"><?php echo $posts_count; ?></span></a></li>
-								<li><a>Внесение данных направлений<span class="badge"><?php echo $directions_count; ?></span></a></li>
+								<li><a href="/editdirections">Внесение данных направлений<span class="badge"><?php echo $directions_count; ?></span></a></li>
 								<li><a>Внесение данных Приборов<span class="badge"><?php echo $device_list_count; ?></span></a></li>
 							</ul>
 						</div>
@@ -48,7 +48,7 @@ $device_list_count=$count[3];
 
 <?php
 
-
+echo '<div class="table-responsive">';
 echo '<table class="table">';
 echo '<thead>';
 echo '<tr><th>№</th><th>Наименование</th><th>Кнопки управления</th></tr>';
@@ -59,7 +59,7 @@ foreach ($data[0] as $locations) {
 }
 
 echo '</table>';
-
+echo '<div>';
 
 ?> 
 </div>

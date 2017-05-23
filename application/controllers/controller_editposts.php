@@ -19,7 +19,7 @@ class Controller_Editposts extends Controller
         $location_id  = $_POST['location_id'];
         $post_number  = $_POST['post_number'];
         $this->model->set_post($location_id, $post_name, $post_address, $post_number);
-        header('Location: http://localhost/editposts');
+        header('Location: /editposts');
         
     }
     function action_deletepost()

@@ -4,7 +4,7 @@ body{
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   color:#000000;
-  min-width: 320px;
+  min-width: 768px;
 
 }
 img{
@@ -119,6 +119,10 @@ body .container-fluid{
 .do-red{
   background-color: #FFAEA0;
 }
+
+.do-yellow{
+  background-color: #FCF8E3;
+}
  #undernav-title{
   height:auto;
   background-color: #DCDBDB;
@@ -150,7 +154,7 @@ table, th, td {
 }
 
 table{
-  min-width: 1500px;
+  min-width: 400px;
 }
 
 .cool{
@@ -240,6 +244,7 @@ to { opacity: 1 }
 
 .success-removing, .success-updating{
   background-color: rgba(7, 241, 81, 0.71);
+  opacity: 0.8;
 }
 
 .modal-dialog.in{
@@ -582,14 +587,14 @@ table .glyphicon {
 }
 .edit_form_editposts_inputs.error{
   
-  border:1px solid #FF0400;
+  border:1px solid #D9534F;
 
-  box-shadow: 0 0 2px #FF0400;
+  box-shadow: 0 0 2px #D9534F;
 }
 select.error{
-  border:10px solid #FF0400;
+  border:10px solid #D9534F#D9534F;
 
-  box-shadow: 0 0 4px #FF0400;
+  box-shadow: 0 0 4px #D9534F;
 }
 
 #edit_form_editposts_submit:hover,#edit_form_editposts_submit:focus
@@ -625,6 +630,186 @@ select.error{
   margin-left: 5.4%;
 }
 
+
+/*----------Стили поля ввода направлений-------------------*/
+#edit_form_editdirections
+{
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);  
+    min-height:165px;
+    width: 100%;
+    margin: 0 1px;
+    padding: 3px;
+   overflow:hidden;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;  
+    -webkit-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          1px 1px   0 rgba(0,   0,   0,   .1),
+          3px 3px   0 rgba(255, 255, 255, 1),
+          4px 4px   0 rgba(0,   0,   0,   .1),
+          6px 6px   0 rgba(255, 255, 255, 1),  
+          7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#edit_form_editdirections h1{
+  text-align: center;
+  text-transform: none;
+}
+
+.tableposts{
+  margin-bottom: 15px;
+}
+
+.edit_form_editdirections_inputs
+{
+    background: #f1f1f1 url(http://www.red-team-design.com/wp-content/uploads/2011/09/login-sprite.png) no-repeat;
+    padding: 15px 15px 15px 30px;
+    margin: 0 0 10px 1%;
+    width: 317px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+   
+}
+
+
+
+.edit_form_editdirections_inputs:focus
+{
+    background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+    -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+    box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*---------Стиль формы ввода постов начало-----------*/
+#edit_form_editdirections_submit
+{
+    margin: 0px 0 0 11px;
+}
+
+#edit_form_editdirections_submit
+{   
+    background-color: #ffb94b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
+    background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -moz-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -ms-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -o-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: linear-gradient(top, #fddb6f, #ffb94b);
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d69e31 #e3a037 #d5982d #e3a037;
+
+    
+    height: 52px;
+    padding: 0;
+    width: 190px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #8f5a0a;
+    float:left;
+}
+.edit_form_editdirections_block_text_input{
+  float:left;
+  margin-left: 5px;
+}
+.edit_form_editdirections_block_text_input label{
+  display: block;
+  color:#FF0400;
+  padding-left: 25px;
+  font-weight: bold;
+ 
+
+}
+.edit_form_editdirections_inputs.error{
+  
+  border:1px solid #D9534F;
+
+  box-shadow: 0 0 2px #D9534F;
+}
+select.error{
+  border:10px solid #D9534F#D9534F;
+
+  box-shadow: 0 0 4px #D9534F;
+}
+
+#edit_form_editdirections_submit:hover,#edit_form_editdirections_submit:focus
+{   
+    background-color: #fddb6f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: linear-gradient(top, #ffb94b, #fddb6f);
+} 
+
+#edit_form_editdirections_submit:active
+{   
+    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;    
+}
+
+#edit_form_editdirections_submit::-moz-focus-inner
+{
+  border: none;
+}
+
+.edit_form_editdirections_select_location{
+  float:left;
+}
+
+#edit_form_editdirections_inputblock{
+  margin-left: 5.4%;
+}
+
+
+
 /* Стили select начало */
 select {
   -webkit-appearance: none;
@@ -649,6 +834,7 @@ select {
   border:2px solid #FED164 ;
   border-radius: .25em;
   float:left;
+  margin-right: 10px;
 }
 select {
   width: 100%;

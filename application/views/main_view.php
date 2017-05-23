@@ -56,8 +56,8 @@ foreach ($data[1] as $locations) {
 							echo '<input class="hide" id="hd-'.$directions['direction_id'].'" type="checkbox"><label for="hd-'.$directions['direction_id'].'">';
 							echo $directions['direction_name'].' |<span class="bold">Количество полос: '.$directions['direction_stripe_count'].'</span><br>';
 							echo '</label>';
-							echo '<div>';
-							echo '<table class="cool table-bordered" >';
+							echo '<div class="table-responsive">';
+							echo '<table class="cool table-bordered table" >';
 							echo '<tr><th>Полоса</th><th>Наименование, тип СИ</th><th>Серийный номер</th><th>паспорт</th><th>Сертификат поверки</th><th>Идентификатор камеры для столбца "Серия и номер прибора" ПО "Ангел"</th><th>Идентификационный номер СИ</th><th>Номер по Государственному реестру СИ</th><th>Год выпуска СИ</th><th>класс точности, погрешность</th><th>предел (диапазон) измерений</th><th>Периодичность поверки, месяцев</th><th>Дата последней поверки</th><th>Сроки проведения поверки</th></tr>'; 
 							foreach ($data[4] as $pribors) {
 								if($pribors['stripe_owner_direction_id']==$directions['direction_id']){
