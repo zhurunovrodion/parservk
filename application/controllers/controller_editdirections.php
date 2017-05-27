@@ -17,11 +17,11 @@ class Controller_Editdirections extends Controller
        
         
     }
-    function action_deletepost()
+    function action_deletedirection()
     {
        
     }
-    function action_updatepost()
+    function action_updatedirection()
     {
         
         }

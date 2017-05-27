@@ -2,12 +2,13 @@
 class Model_Editdirections extends Model
 {	
 	public $db;
-	 public $table_posts;
+	public $table_posts;
     public $table_locations;
     public $table_location_post_consistency;
     public $res_posts;
     public $res_location;
     public $res_location_post_consistency;
+    public $res_directions;
 	
 	public function get_data()
 	{
@@ -15,30 +16,33 @@ class Model_Editdirections extends Model
         $this->table_posts                     = 'posts';
         $this->table_locations                 = 'locations';
         $this->table_location_post_consistency = 'location_post_consistency';
+        $this->table_directions				   = 'directions';
         $this->res_location_post_consistency   = $this->db->getAll("SELECT * FROM ?n", $this->table_location_post_consistency);
         $this->res_posts                       = $this->db->getAll("SELECT * FROM ?n", $this->table_posts);
         $this->res_locations                   = $this->db->getAll("SELECT * FROM ?n", $this->table_locations);
+        $this->res_directions				   = $this->db->getAll("SELECT * FROM ?n",$this->table_directions);
         //var_dump($this->res_location_post_consistency);
         
         
         $result = array(
             $this->res_locations,
             $this->res_posts,
-            $this->res_location_post_consistency
+            $this->res_location_post_consistency,
+            $this->res_directions
         );
         return $result;
 		}
-	public function set_location($data){
+	public function set_direction($data){
 
 		
 	}
 	
-	public function delete_location($data){
+	public function delete_direction($data){
 		
 		
 		
 	}
-	public function update_location($id, $value){
+	public function update_direction($id, $value){
 		
 	}
 
