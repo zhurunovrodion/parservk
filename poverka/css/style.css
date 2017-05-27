@@ -1,0 +1,942 @@
+﻿/*
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 3.0 License
+
+Name       : Accumen
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20120712
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: underline;
+	color: #353535;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+body {
+	line-height: 1.75em;
+	background: #fff url('../images/00bd.png');
+	
+	font-size: 11.5pt;
+	color: #353535;
+}
+
+body,input {
+	font-family: Kreon, serif;
+}
+
+br.clearfix {
+	clear: both;
+}
+
+h1,h2,h3,h4 {
+	text-transform: uppercase;
+	font-weight: normal;
+	font-family: "Open Sans", sans-serif;
+	color: #353535;
+	margin-bottom: 1em;
+}
+
+h1 {
+	font-size: 1.75em;
+}
+
+h2  {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+img.alignleft {
+	float: left;
+	margin: 5px 30px 20px 0;
+}
+
+img.aligntop {
+	margin: 5px 0 20px 0;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+ul {
+	margin-bottom: 1.5em;
+}
+
+ul h4 {
+	margin-bottom: 0.35em;
+}
+
+a {
+	color: #353535;
+}
+
+#content {
+	padding: 0 0 0 10px;
+	width: 1600px;
+	margin: 0 0 0 0px;
+	margin-top: 100px;
+}
+
+#footer {
+	padding: 20px 0 20px 0;
+	text-align: center;
+	text-shadow: 1px 1px 0px rgba(255,255,255,0.7);
+	color: #353535;
+}
+
+#footer a {
+	color: #353535;
+}
+
+#header {
+	height: 130px;
+	padding: 18px;
+	position: relative;
+	
+	background: url(../images/logo.png) no-repeat 43px 12px;
+}
+
+#logo {
+	position: absolute;
+	top: 40px;
+	left: 20px;
+	height: 130px;
+	line-height: 130px;
+	
+}
+
+#logo a {
+	color: #ffffff;
+	text-shadow: black 0px 0px 7px;
+	text-decoration: none;
+	font-family: "Open Sans", sans-serif;
+	font-size: 35px;
+}
+
+
+#logo img {
+	margin-left: 70px;
+	vertical-align: middle;
+}
+
+#menu {
+	line-height: 39px;
+	position: absolute;
+	right: 40px;
+	top: 87px;
+	height: 57px;
+	font-family: "Open Sans", sans-serif;
+}
+
+#menu a {
+	text-transform: uppercase;
+	
+	color: #1C1C1C;
+	font-size: 1.2em;
+	display: inline-block;
+
+    position: relative;
+    text-decoration: none;
+}
+#menu a:before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 0;
+    background: #ec4444;
+    
+    transition: width 0.2s ease-in-out;
+    left: 0;
+    bottom: 0;
+}
+#menu a:hover:before {
+    width: 100%;
+
+}
+
+
+#menu ul {
+	padding: 0 20px 0 20px;
+	list-style: none;
+}
+
+#menu ul li {
+	display: inline-block;
+	padding: 10px 10px 10px 10px;
+	margin: 0 8px 0 8px;
+}
+.submenu {
+	float:left;
+	width: 350px;
+position: absolute;
+top:40px;
+left:356px;
+background-color: #F0FAFF;
+border-bottom: 4px solid #FF4848;
+}
+
+li .submenu{
+display: none;
+position: absolute;
+
+}
+
+li:hover .submenu{
+display: block;
+z-index: 999;
+
+-webkit-box-shadow: 1px 1px 15px 0px rgba(50, 50, 50, 0.72);
+-moz-box-shadow:    1px 1px 15px 0px rgba(50, 50, 50, 0.72);
+box-shadow:         1px 1px 15px 0px rgba(50, 50, 50, 0.72);
+
+
+/* CSS by GenerateCSS.com */
+transition: .4s ease-in-out;
+
+}
+
+.submenu li {
+  line-height: 20px;
+  font-size: 14px;
+}
+
+#page {
+	margin: 0;
+	position: relative;
+	width: 1600px;
+	padding: 20px 40px 0 40px;
+}
+
+#page .section-list {
+	padding-left: 0;
+	list-style: none;
+}
+
+#page .section-list li {
+	padding: 25px 0 25px 0;
+	clear: both;
+}
+
+#sidebar ul {
+	list-style: none;
+}
+
+#sidebar ul li {
+	border-top: solid 1px #e3e3e3;
+	padding: 10px 0 10px 0;
+}
+
+#sidebar ul li.first {
+	padding-top: 0;
+	border-top: 0;
+}
+
+#page-bottom {
+	padding: 40px 40px 0 40px;
+	color: #353535;
+	background: #f3f3f3;
+	position: relative;
+	width: 898px;
+	border-top: solid 1px #e3e3e3;
+	box-shadow: inset 0px 0px 0px 1px #fff;
+	text-shadow: 1px 1px 0px rgba(255,255,255,0.9);
+}
+
+#page-bottom a {
+	color: #1B1A18;
+}
+
+#page-bottom h2, #page-bottom h3, #page-bottom h4 {
+	color: #353535;
+}
+
+#page-bottom ul {
+	list-style: none;
+}
+
+#page-bottom ul li {
+	border-top: solid 1px #e3e3e3;
+	padding: 10px 0 10px 0;
+}
+
+#page-bottom ul li.first {
+	border-top: 0;
+	padding-top: 0;
+}
+
+#page-bottom-content {
+	width: 615px;
+	margin: 0 0 0 290px;
+}
+
+#page-bottom-sidebar {
+	float: left;
+	width: 250px;
+}
+
+#sidebar {
+	position: relative;
+	left: -20px;
+	top: -20px;
+	float: left;
+	width: 240px;
+	background: #f3f3f3;
+	padding: 20px;
+	border: solid 1px #e3e3e3;
+	margin: 0 10px 0 0;
+	text-shadow: 1px 1px 0px rgba(255,255,255,1);
+	box-shadow: inset 0px 0px 0px 1px #fff;
+}
+
+#wrapper {
+	width: 1700px;
+	position: relative;
+	background: #FFF;
+	margin: 0 auto 0 auto;
+	box-shadow: 10px 100px 150px 0px rgba(0,0,0,0.15);
+	border: solid 1px #f3f3f3;
+	border-top: 0;
+	min-height: 900px;
+}
+
+.box img {
+	margin: 0px 20px 0px 0px;
+	border: solid 1px #e3e3e3;
+}
+
+.box p {
+	margin-bottom: 0em;
+}
+
+.box ul{
+	margin-bottom: 0em;
+	list-style: square inside;
+}
+
+.box table {
+	border-collapse:collapse;
+
+	
+}
+.box table tr td .privet{
+	border-collapse:collapse;
+	width:1573px;
+	margin-left: 40px; 
+	/*margin-left:73px;*/
+
+	
+}
+
+.cool{
+	border-collapse:collapse;
+	width:1543px;
+	margin-left:5px;
+	border: 5px solid #A9A9A9;
+	text-align: center;
+
+	
+}
+
+.box table, th, td {
+	border: 1px solid #A9A9A9;
+	padding: 5px;
+
+
+}
+
+
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic);
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  margin:0;
+  padding:0;
+}
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+/* demo контейнер */
+.demo {
+   
+}
+/* скрываем чекбоксы и блоки с содержанием */
+.hide,
+.hide + label ~ div {
+    display: none;
+}
+/* вид текста label */
+.hide + label {
+    margin: 0;
+    padding: 0;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+}
+/* вид текста label при активном переключателе */
+.hide:checked + label {
+    color: red;
+    border-bottom: 0;
+}
+/* когда чекбокс активен показываем блоки с содержанием  */
+.hide:checked + label + div {
+    display: block; 
+    background: #efefef;
+    -moz-box-shadow: inset 3px 3px 10px #7d8e8f;
+    -webkit-box-shadow: inset 3px 3px 10px #7d8e8f;
+    box-shadow: inset 3px 3px 10px #7d8e8f;
+    margin-left: 4px;
+    padding: 2px;
+    position: relative;
+    /* чуточку анимации при появлении */
+     -webkit-animation:fade ease-in 0.5s; 
+     -moz-animation:fade ease-in 0.5s;
+     animation:fade ease-in 0.5s; 
+}
+/* анимация при появлении скрытых блоков */
+@-moz-keyframes fade {
+    from { opacity: 0; }
+to { opacity: 1 }
+}
+@-webkit-keyframes fade {
+    from { opacity: 0; }
+to { opacity: 1 }
+}
+@keyframes fade {
+    from { opacity: 0; }
+to { opacity: 1 }   
+}
+.hide + label:before {
+    background-color: #1e90ff;
+    color: #fff;
+    content: "\002B";
+    display: block;
+    float: left;
+    font-size: 14px; 
+    font-weight: bold;
+    height: 16px;
+    line-height: 16px;
+    margin: 3px 5px;
+    text-align: center;
+    width: 16px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.hide:checked + label:before {
+    content: "\2212";
+}
+
+.dogreybg{
+	background-color: #C8F1FF;
+}
+.fixed-menu{
+	background-color: #FFAEA0;
+}
+
+#direction{
+	font-weight: bold;
+
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.header-title{
+	width:1699px;
+	background-color:#DCDBDB;
+	position: absolute;
+	text-align: center;
+	left:0px;
+	margin-bottom: 50px;
+	top:22px;
+	border-top: 2px solid #FFB2A5;
+	/*border-bottom: 2px solid #FFB2A5;*/
+	height: 50px;
+	padding-top:5px;
+	color: #434f54;
+}
+
+/*Cтили формы ввода данных edit_locations*/
+
+#edit_form_editlocations
+{
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);  
+    height:auto;
+    width: 100%;
+    margin: 71px 0 0 0px;
+    padding: 3px;
+   overflow:hidden;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;  
+    -webkit-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          1px 1px   0 rgba(0,   0,   0,   .1),
+          3px 3px   0 rgba(255, 255, 255, 1),
+          4px 4px   0 rgba(0,   0,   0,   .1),
+          6px 6px   0 rgba(255, 255, 255, 1),  
+          7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#edit_form_editlocations h1{
+	text-align: center;
+	text-transform: none;
+}
+
+
+
+#edit_form_editlocations_inputs
+{
+    background: #f1f1f1 url(http://www.red-team-design.com/wp-content/uploads/2011/09/login-sprite.png) no-repeat;
+    padding: 15px 15px 15px 30px;
+    margin: 0 0 10px 34%;
+    width: 353px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    float:left;
+}
+
+
+
+#edit_form_editlocations_inputs:focus
+{
+    background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+    -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+    box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*--------------------*/
+#edit_form_editlocations_submit
+{
+    margin: 0px 0 0 11px;
+}
+
+#edit_form_editlocations_submit
+{		
+    background-color: #ffb94b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
+    background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -moz-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -ms-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -o-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: linear-gradient(top, #fddb6f, #ffb94b);
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d69e31 #e3a037 #d5982d #e3a037;
+
+    
+    height: 46px;
+    padding: 0;
+    width: 172px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #8f5a0a;
+    float:left;
+}
+
+#edit_form_editlocations_submit:hover,#edit_form_editlocations_submit:focus
+{		
+    background-color: #fddb6f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: linear-gradient(top, #ffb94b, #fddb6f);
+}	
+
+#edit_form_editlocations_submit:active
+{		
+    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#edit_form_editlocations_submit::-moz-focus-inner
+{
+  border: none;
+}
+
+
+
+/* Конец*Cтили формы ввода данных edit_lications*/
+
+#editlocations_table table{
+	width:800px;
+	margin: 25px 25%;
+}
+#editlocations_table th{
+	background-color: #FFAEA0;
+}
+
+#editlocations_table table li span.note {
+	float: left;
+}
+
+#editlocations_table table li{
+	list-style-type:none;
+	background-color: #eeeeee;
+	border: solid 1px #aaaaaa;
+	padding: 0.5em;
+	margin: 0.2em;
+	clear: both;
+	overflow: hidden;
+	width:758px;
+	height: 38px;
+}
+
+#editlocations_table table li img{
+	border: none;
+	float:right;
+	display: inline;
+}
+
+#notfound {
+	border: none;
+	margin: 0 25%;
+}
+
+
+
+
+/*----------Стили поля ввода постов-------------------*/
+#edit_form_editposts
+{
+    background-color: #fff;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#eee));
+    background-image: -webkit-linear-gradient(top, #fff, #eee);
+    background-image: -moz-linear-gradient(top, #fff, #eee);
+    background-image: -ms-linear-gradient(top, #fff, #eee);
+    background-image: -o-linear-gradient(top, #fff, #eee);
+    background-image: linear-gradient(top, #fff, #eee);  
+    height:auto;
+    width: 100%;
+    margin: 71px 0 0 0px;
+    padding: 3px;
+   overflow:hidden;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;  
+    -webkit-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+    -moz-box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          1px 1px   0 rgba(0,   0,   0,   .1),
+          3px 3px   0 rgba(255, 255, 255, 1),
+          4px 4px   0 rgba(0,   0,   0,   .1),
+          6px 6px   0 rgba(255, 255, 255, 1),  
+          7px 7px   0 rgba(0,   0,   0,   .1);
+    box-shadow:
+          0 0 2px rgba(0, 0, 0, 0.2),  
+          0 1px 1px rgba(0, 0, 0, .2),
+          0 3px 0 #fff,
+          0 4px 0 rgba(0, 0, 0, .2),
+          0 6px 0 #fff,  
+          0 7px 0 rgba(0, 0, 0, .2);
+}
+
+#edit_form_editposts h1{
+	text-align: center;
+	text-transform: none;
+}
+
+
+
+.edit_form_editposts_inputs{
+    background: #f1f1f1 url(http://www.red-team-design.com/wp-content/uploads/2011/09/login-sprite.png) no-repeat;
+    padding: 15px 15px 15px 30px;
+    margin: 0 0 10px 1%;
+    width: 300px; /* 353 + 2 + 45 = 400 */
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    -webkit-box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    box-shadow: 0 1px 1px #ccc inset, 0 1px 0 #fff;
+    float:left;
+}
+
+
+
+.edit_form_editposts_inputs:focus{
+    background-color: #fff;
+    border-color: #e8c291;
+    outline: none;
+    -moz-box-shadow: 0 0 0 1px #e8c291 inset;
+    -webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+    box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+/*---------Стиль формы ввода постов начало-----------*/
+#edit_form_editposts_submit
+{
+    margin: 0px 0 0 11px;
+}
+
+#edit_form_editposts_submit{		
+    background-color: #ffb94b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#fddb6f), to(#ffb94b));
+    background-image: -webkit-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -moz-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -ms-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: -o-linear-gradient(top, #fddb6f, #ffb94b);
+    background-image: linear-gradient(top, #fddb6f, #ffb94b);
+    
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+     -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+     box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d69e31 #e3a037 #d5982d #e3a037;
+
+    
+    height: 46px;
+    padding: 0;
+    width: 172px;
+    cursor: pointer;
+    font: bold 15px Arial, Helvetica;
+    color: #8f5a0a;
+    float:left;
+}
+#edit_form_editposts_block_text_input{
+	position: relative;
+}
+#edit_form_editposts_block_text_input label{
+ 	position: absolute;
+ 	z-index: 5;
+
+}
+#edit_form_editposts_inputs.error{
+	
+	border:2px solid #FF0400;
+	box-shadow: 0 0 2px #FF0400;
+}
+
+#edit_form_editposts_submit:hover,#edit_form_editposts_submit:focus
+{		
+    background-color: #fddb6f;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffb94b), to(#fddb6f));
+    background-image: -webkit-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -moz-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -ms-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: -o-linear-gradient(top, #ffb94b, #fddb6f);
+    background-image: linear-gradient(top, #ffb94b, #fddb6f);
+}	
+
+#edit_form_editposts_submit:active
+{		
+    outline: none;
+   
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;
+     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5) inset;		
+}
+
+#edit_form_editposts_submit::-moz-focus-inner
+{
+  border: none;
+}
+
+#edit_form_editposts_select_location{
+	float:left;
+}
+
+#edit_form_editposts_inputblock{
+	margin-left: 5.4%;
+}
+/* Стили select начало */
+.dropcontainer_demo2 {
+	position:absolute;
+	font-size: 16px;
+	color: #777;
+	width: 18%;
+	top:231px;
+	} 
+
+.trigger_demo2 {
+	color: #777;
+	padding: 10px;
+	font-size: 16px;
+	width: 19.2%;
+	background: #fff url(../images/select-arrow-open.png) 98% center no-repeat;
+	display: block;
+	border: 1px solid #ccc;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease; 
+	transition: all 0.5s ease;
+	float: left;
+	}
+
+.trigger_demo2:hover {
+	color: #777;
+	background: #f5f5f5 url(../images/select-arrow-open.png) 98% center no-repeat;
+	}
+
+.activetrigger_demo2 {
+	color: #777;
+	padding: 10px;
+	font-size: 16px;
+	width: 19.2%;
+	background: #f5f5f5 url(../images/select-arrow-close.png) 98% center no-repeat;
+	display: block;
+	border: 1px solid #ccc;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	float:left;
+
+	}
+
+.activetrigger_demo2:hover {
+	background: #f5f5f5 url(../images/select-arrow-close.png) 98% center no-repeat;
+	color: #777;
+	}
+
+.activetrigger_demo2:active {
+	background: #f5f5f5 url(../images/select-arrow-close.png) 98% center no-repeat;
+	color: #777;
+	}
+
+.dropcontainer_demo2 ul {
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-top: none;
+	background: #fff;
+	list-style-type: none;
+	padding: 10px;
+	margin: 0;
+	width: 100%;
+	z-index: 100;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	}
+
+.dropcontainer_demo2 ul li {
+	padding: 5px;
+	-webkit-transition: all 0.5s ease; 
+	-moz-transition: all 0.5s ease; 
+	-o-transition: all 0.5s ease; 
+	transition: all 0.5s ease;
+	}
+
+.dropcontainer_demo2 ul li:hover {
+	background: #FFBF51;
+	outline: none;
+	}
+.dropcontainer_demo2 ul li a{
+	text-decoration: none;
+}
+.dropcontainer_demo2 ul li:first-child {
+	display: none;
+	}
+
+.dropcontainer_demo2 ul li:last-child {
+	border-bottom: none;
+	}
+
+.dropdownhidden_demo2 {
+	display: none;
+	}
+
+.dropdownvisible_demo2 {
+	height: auto;
+	}
+
+.dropdownvisible_demo2 {
+	height: 200px;
+	overflow-y: scroll;
+	}
+
+/* Стили select начало конец */	
+/*---------Стиль формы ввода постов конец-----------*/

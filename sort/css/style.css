@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+body {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 1.1em;
+}
+
+h1 {
+	font-size: 1.2em;
+}
+
+p {
+	font-size: 0.8em;
+}
+
+ul {
+	margin: 1em;
+	list-style: none;
+	padding: 0;
+	padding: 0.5em;
+}
+
+ul li {
+	border: solid 1px #aaaaaa;
+	padding: 0.5em;
+	margin: 0.2em;
+	background-color: #eeeeee;
+	text-align: right;
+	clear: both;
+}
+
+ul li span.note {
+	float: left;
+}
+
+ul li a  img{
+	border: none;
+}
