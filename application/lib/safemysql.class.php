@@ -75,7 +75,7 @@ class SafeMySQL
 		'host'      => 'localhost',
 		'user'      => 'root',
 		'pass'      => '',
-		'db'        => 'poverka_db',
+		'db'        => 'parservk_db',
 		'port'      => NULL,
 		'socket'    => NULL,
 		'pconnect'  => FALSE,
