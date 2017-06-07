@@ -16,19 +16,7 @@ class Controller_Parservk extends Controller
 		
 	}
 	function action_deletelocation(){
-		try {
-		    if (!isset($_POST['location_id'])) {
-		        throw new Exception('Не указан id записи');
-		    }
-		    $data=$_POST['location_id'];
-		    
-   		 
-         $result=$this->model->delete_location($data);
-		 echo $result;   
-		    
-		} catch(Exception $e) {
-		    echo json_encode(array('err'=>'Ошибка: '.$e->getMessage()));
-		}
+		$this->model->quality_control( 54530371, 368, 4 );
    	}
    	function action_updatelocation(){
         try {

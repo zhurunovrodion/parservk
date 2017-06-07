@@ -106,14 +106,14 @@ class Model_Parservk extends Model
     }
     
     
-    public function set_post_to_db($public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $quality)
+    public function set_post_to_db($public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $views)
     {
         
         $this->db = new SafeMySQL();
         
         
-        $sql = "INSERT INTO post_original(public_id,post_text,post_likes,post_reposts, date_vk,post_photo_vk_link, quality_post) VALUES(?i,?s,?i,?i,?i,?s,?i)";
-        $this->db->query($sql, $public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $quality);
+        $sql = "INSERT INTO post_original(public_id,post_text,post_likes,post_reposts, date_vk,post_photo_vk_link, views) VALUES(?i,?s,?i,?i,?i,?s,?i)";
+        $this->db->query($sql, $public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $views);
         
         
     }
@@ -169,11 +169,11 @@ class Model_Parservk extends Model
         echo '<h1>Пиздилка постов запущена. Слава Украине!</h1>';
         
         $public_list = $this->get_public_list();
-        var_dump($public_list);
-        $t = 1;
+        $current_date = getdate(time());
+        $size_of_the_queries = $current_date['mon'] * 1500;
         foreach ($public_list as $public) {
             
-            for ($j = 0; $j < 10000; $j += 100) {
+            for ($j = 0; $j < $size_of_the_queries; $j += 100) {
                 
                 $posts = $this->parser_posts_query($public['public_id'], $j);
                 
@@ -183,28 +183,53 @@ class Model_Parservk extends Model
                     $post_likes         = $posts->response->items[$i]->likes->count;
                     $post_reposts       = $posts->response->items[$i]->reposts->count;
                     $post_date          = $posts->response->items[$i]->date;
-                    $post_photo_vk_link = $posts->response->items[$i]->attachment->photo->src_big;
+                    $post_photo_vk_link = $posts->response->items[$i]->attachments[0]->photo->photo_807;
                     $post_views = $posts->response->items[$i]->views->count;
-                    
+                    //var_dump($posts);
+                    echo $post_text.'<br>';
+                    echo $post_likes.'<br>';
+                    echo $post_reposts.'<br>';
+                    echo $post_photo_vk_link.'<br>';
+                    echo '<hr>';
+
+                    $post_date_tmp=getdate($post_date);
+
+                    if ($post_date_tmp['year'] == 2016){
+                        echo "2016 год , пропуск <br>";
+                        continue;
+                    }
+
+                     if ($post_date_tmp['year']==1970){
+                        echo "1970 год , пропуск <br>";
+                        continue;
+                    }
                     
                     if ($post_reposts < 1) {
+                        echo "мало репостов, пропуск<br>";
                         continue;
+
                     }
                     
-                    $quality = $post_likes / $post_reposts;
-                    if ($quality > 50) {
-                        continue;
-                    }
+                    
                     
                     if (strlen($post_text) < 5) {
+                         echo "Маленький размер текста, пропуск<br>";
                         continue;
                     }
                     
                     if (($this->ad_filter($post_text)) == "false") {
+                         echo "реклама, пропуск<br>";
                         continue;
                     }
                     
-                    if (empty($post_photo_vk_link)) {
+                   if (empty($post_photo_vk_link)) {
+                        echo "Нет фотки, пропуск<br>";
+                        continue;
+                    }
+
+                    $quality=$this->quality_control( $public['public_id'], $post_views, $post_date_tmp['mon']);  
+                    if ($quality=="false")
+                    {
                         continue;
                     }
                     
@@ -214,7 +239,7 @@ class Model_Parservk extends Model
                         
                         continue;
                     }
-                    $this->set_post_to_db($public['public_id'], $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $quality);
+                    $this->set_post_to_db($public['public_id'], $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $post_views);
                     $this->set_shingle_to_db($shingle);
                     
                 }
@@ -339,5 +364,28 @@ class Model_Parservk extends Model
             
         }
     }
+
+    public function quality_control( $public_id, $post_views, $month ){
+         $this->db = new SafeMySQL();
+         $public_average_coverage= $this->db->getAll("SELECT average_coverage FROM `public_views_consistency` WHERE public_id=?i and month=?i",$public_id , $month );
+
+         
+         $viewers_procent=($post_views*100)/$public_average_coverage[0]['average_coverage'];
+         echo "Паблик : $public_id <br>";
+         echo "Просмотров поста : $post_views <br>";
+         echo "Месяц поста : $month <br>";
+         echo 'Средний охват паблика за '.$month.' месяц равен'. $public_average_coverage[0]['average_coverage'].'<br>';
+         echo "Процент от среднего поста $viewers_procent  <br>";
+          echo "<hr>";
+         if ( $viewers_procent>130){
+            return "true";
+         }else{
+            return "false";
+         }
+
+
+
+    }
     
 }
+
