@@ -100,20 +100,22 @@ class Model_Parservk extends Model
     
     
     public function parser_posts_query($public_id, $posts_offset)
-    {
-        $posts = json_decode(file_get_contents('https://api.vk.com/method/wall.get?owner_id=-' . $public_id . '&offset=' . $posts_offset . '&count=100&v=5.65'));
+
+    {   
+        $access_token="cb2cac6c39eaf7e68a16c9cc2c0e798e35c22c4f44d0281bd08dd60a1e7a609dac4345a4dd2f364c8ed47";
+        $posts = json_decode(file_get_contents('https://api.vk.com/method/wall.get?owner_id=-' . $public_id . '&offset=' . $posts_offset . '&count=10&v=5.65&access_token='.$access_token));
         return $posts;
     }
     
     
-    public function set_post_to_db($public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $views)
+    public function set_post_to_db($public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_attachments, $views)
     {
         
         $this->db = new SafeMySQL();
         
         
-        $sql = "INSERT INTO post_original(public_id,post_text,post_likes,post_reposts, date_vk,post_photo_vk_link, views) VALUES(?i,?s,?i,?i,?i,?s,?i)";
-        $this->db->query($sql, $public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $views);
+        $sql = "INSERT INTO post_original(public_id,post_text,post_likes,post_reposts, date_vk,post_attachments, views) VALUES(?i,?s,?i,?i,?i,?s,?i)";
+        $this->db->query($sql, $public_id, $post_text, $post_likes, $post_reposts, $post_date, $post_attachments, $views);
         
         
     }
@@ -183,9 +185,9 @@ class Model_Parservk extends Model
                     $post_likes         = $posts->response->items[$i]->likes->count;
                     $post_reposts       = $posts->response->items[$i]->reposts->count;
                     $post_date          = $posts->response->items[$i]->date;
-                    $post_photo_vk_link = $posts->response->items[$i]->attachments[0]->photo->photo_807;
+                    $post_attachments = serialize($posts->response->items[$i]->attachments);
                     $post_views = $posts->response->items[$i]->views->count;
-                    //var_dump($posts);
+                   
                     echo $post_text.'<br>';
                     echo $post_likes.'<br>';
                     echo $post_reposts.'<br>';
@@ -222,10 +224,7 @@ class Model_Parservk extends Model
                         continue;
                     }
                     
-                   if (empty($post_photo_vk_link)) {
-                        echo "Нет фотки, пропуск<br>";
-                        continue;
-                    }
+                   
 
                     $quality=$this->quality_control( $public['public_id'], $post_views, $post_date_tmp['mon']);  
                     if ($quality=="false")
@@ -239,7 +238,7 @@ class Model_Parservk extends Model
                         
                         continue;
                     }
-                    $this->set_post_to_db($public['public_id'], $post_text, $post_likes, $post_reposts, $post_date, $post_photo_vk_link, $post_views);
+                    $this->set_post_to_db($public['public_id'], $post_text, $post_likes, $post_reposts, $post_date, $post_attachments, $post_views);
                     $this->set_shingle_to_db($shingle);
                     
                 }
@@ -271,7 +270,7 @@ class Model_Parservk extends Model
         for ($j=$counter ; $j <= $size_of_the_queries; $j += 100) {
             
             $posts = $this->parser_posts_query($public_id, $j);
-            // var_dump($posts);
+             
             for ($i = 0; $i <= 100; $i++) {
                    
                 $pinned=$posts->response->items[$i]->is_pinned;
@@ -377,7 +376,7 @@ class Model_Parservk extends Model
          echo 'Средний охват паблика за '.$month.' месяц равен'. $public_average_coverage[0]['average_coverage'].'<br>';
          echo "Процент от среднего поста $viewers_procent  <br>";
           echo "<hr>";
-         if ( $viewers_procent>130){
+         if ( $viewers_procent>1){
             return "true";
          }else{
             return "false";
@@ -386,6 +385,96 @@ class Model_Parservk extends Model
 
 
     }
+    
+    public function get_image_from_attachment($attachment){
+
+        $count_of_attachment=count($attachment);
+        //var_dump($attachment);
+        $resuly_img_link_array=array();
+        for($i=0; $i<$count_of_attachment; $i++){
+            //echo $attachment[$i]->photo->photo_807."<br>";
+            
+            $array_size=array();
+            foreach ($attachment[$i]->photo as $key => $value) {
+               $length= strlen($key);
+                $sub_count=substr_count($key, "photo_");
+                if ($sub_count){
+                $size_img=substr($key, 6);
+                $array_size[]=$size_img;    
+              
+                }
+            }
+            $max_size=max($array_size);
+              
+              $name="photo_".$max_size;
+              
+              $img_link=$attachment[$i]->photo->$name;
+              
+              $result_img_link_array[]=$img_link;
+
+        }
+      //  echo "<h1>Результирующий массив изображений</h1>";
+       // var_dump($result_img_link_array);
+        return $result_img_link_array;
+    }
+
+    public function get_posts_from_db(){
+         $this->db = new SafeMySQL();
+         $array_posts=$this->db->getAll("SELECT * FROM post_original  LIMIT 1 ");
+        
+         return unserialize($array_posts[0]['post_attachments']);
+
+    }
+
+    public function show_attachment(){
+        $attachment=$this->get_posts_from_db();
+        $image_links=$this->get_image_from_attachment($attachment);
+        $server_image=$this->copy_image_from_to_dir($image_links);
+        foreach ($server_image as  $value) {
+           $this->draw_grid_on_image($value);
+        }
+            
+        
+    }
+
+
+    public function copy_image_from_to_dir($image_links){
+        $server_dir=array();
+        foreach ($image_links as  $value) {
+            $img_url=$value;
+              $img_name=basename($img_url);
+              copy($img_url, 'images/image_from_vk/'.basename($img_url));
+              $server_dir[]="images/image_from_vk/". $img_name;
+              
+        }
+       
+       return $server_dir;
+        
+    }
+
+
+    public function draw_grid_on_image($image_path){
+        list($temp_width, $temp_height, $temp_type) = getimagesize($image_path);
+        echo $temp_width.'<br>';
+          echo $temp_height.'<br>';
+            echo $temp_type.'<br>';
+        $img=imagecreatefromjpeg($image_path);
+       $red   = imagecolorallocate($img, 255, 0, 0);
+         ImageColorTransparent( $img, $red );
+          $alpha = 117;
+       imagesetthickness($img, 1);
+       $alphaColor = ImageColorAllocateAlpha( $img, 255, 0, 0, $alpha );
+
+        for ($i=0; $i<$temp_width; $i+=10){
+            imageline ($img, $i, 0, $i, $temp_height, $alphaColor);
+           
+        }
+        for ($i=0; $i<$temp_height; $i+=10){
+            imageline ($img, 0, $i ,  $temp_width, $i, $alphaColor);
+        }
+        imagejpeg($img, $image_path ,100);
+    }
+
     
 }
 

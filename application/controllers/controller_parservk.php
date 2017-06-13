@@ -15,6 +15,14 @@ class Controller_Parservk extends Controller
 		$this->model->give_all_public_average_coverage();
 		
 	}
+
+	function action_getposts(){
+		$this->model->get_posts_from_db();
+	}
+
+	function action_showattach(){
+		$this->model->show_attachment();
+	}
 	function action_deletelocation(){
 		$this->model->quality_control( 54530371, 368, 4 );
    	}
