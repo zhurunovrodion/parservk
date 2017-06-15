@@ -4,8 +4,9 @@ require_once 'core/model.php';
 require_once 'core/view.php';
 require_once 'core/controller.php';
 require_once "lib/safemysql.class.php";
-require_once "lib/vkontakte.class.php";
+//require_once "lib/vkontakte.class.php";
 require_once "lib/shingles.class.php";
+require_once "lib/vk_api_class.php";
 /*
 Здесь обычно подключаются дополнительные модули, реализующие различный функционал:
 	> аутентификацию

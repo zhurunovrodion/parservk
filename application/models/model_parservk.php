@@ -427,14 +427,17 @@ class Model_Parservk extends Model
     }
 
     public function show_attachment(){
+        vk::set_token("c5ee1581bca9b5c91e5c88820b8c14aeaa93038b8afa44d2caf5abffcb91440e17aa9062f258f0eec71b1");
         $attachment=$this->get_posts_from_db();
         $image_links=$this->get_image_from_attachment($attachment);
         $server_image=$this->copy_image_from_to_dir($image_links);
         foreach ($server_image as  $value) {
            $this->draw_grid_on_image($value);
         }
-            
-        
+       echo '<h1>'.$server_image[1].'</h1>';     
+        $imgid = $this->upload_image("32753197","http://tapochek.net/images/TN.png");
+       // echo '<h1>'.$imgid.'</h1>';
+         vk::method("wall.post", array("attachments" => $imgid));
     }
 
 
@@ -475,6 +478,57 @@ class Model_Parservk extends Model
         imagejpeg($img, $image_path ,100);
     }
 
-    
+
+         public   function send_image($url, $img)
+        {   echo $img;
+            echo $url;
+            $post_params = array(
+            "photo_" => $img);
+                    
+         
+             $ch = curl_init();
+             curl_setopt($ch, CURLOPT_URL, $url);
+             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+             curl_setopt($ch, CURLOPT_POST, true);
+             curl_setopt($ch, CURLOPT_POSTFIELDS, $post_params);
+             $result = curl_exec($ch);   
+         
+             return $result;      
+         }
+                 
+        // Загрузить картинку на сервера ВК и вернуть ее ID         
+        public function upload_image($owner_id,$img)
+        {
+                     
+           // Получаем адрес для загрузки фотографии         
+           $upload_url = vk::method("photos.getWallUploadServer")->response->upload_url;
+           echo "<h1> $upload_url</h1>";
+             echo "<hr>";
+            // Загружаем картинку на полученный адрес       
+            $r = json_decode($this->send_image($upload_url,"@".$img));
+            var_dump($r);
+            echo "<hr>";
+            $photo_id = vk::method("photos.saveWallPhoto",
+            array(
+                "user_id" => $owner_id,
+                "photo" => $r->photo,
+                "server" => $r->server,
+                "hash" => $r->hash
+                )
+              );
+               
+               var_dump($photo_id);  // Выводим содержимое ответа              
+               return $photo_id->response[0]->id; // Возвращаем id изображения
+        }
+         
+         
+      //  vk::set_token("cb2cac6c39eaf7e68a16c9cc2c0e798e35c22c4f44d0281bd08dd60a1e7a609dac4345a4dd2f364c8ed47");
+         
+         
+      //  $imgid = upload_image("374254461","1.jpg"); // загружаем картинку
+         
+     //   // Выкладываем запись на стену и прикрепляем к ней загруженную ранее картинку
+    //    vk::method("wall.post", array("attachments" => $imgid));
+            
 }
 
